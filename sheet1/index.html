@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My very first cool Table</title>
+    <style type="text/css">
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        width: 100%;
+        /* height: 100vh; */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        letter-spacing: 1px;
+        background-color: #0c1022;
+        /* gap: 2rem; */
+        margin: 1rem;
+      }
+      .red {
+        color: #fb667a;
+      }
+      h2 a {
+        text-decoration: none;
+        color: #fb667a;
+        text-transform: lowercase;
+        font-weight: 900;
+      }
+      h2 > a > span {
+        text-transform: uppercase;
+      }
+      .container {
+        margin: auto;
+        margin-top: 8px;
+        border-collapse: collapse;
+        overflow: hidden;
+        text-align: left;
+        font-size: 20px;
+      }
+      .container th,
+      .container td {
+        width: 200px;
+        padding: 10px;
+      }
+      .container td {
+        box-shadow: 1px 1px 3px -1px #000;
+      }
+      .container th {
+        color: #fff842;
+        text-align: center;
+        background-color: #1f2739;
+      }
+      .container td:first-child {
+        color: #fb667a;
+      }
+      .container tr:nth-child(odd) {
+        background-color: #323c50;
+      }
+      .container tr:nth-child(even) {
+        background-color: #2c3446;
+      }
+      td {
+        color: #4dc3fa;
+      }
+      .container td:hover,
+      th:hover {
+        background-color: #fff842;
+        color: #1f2739;
+        font-weight: bold;
+        box-shadow: -6px 6px 0 0 #7f7c21, -5px 5px 0 0 #7f7c21,
+          -4px 4px 0 0 #7f7c21, -3px 3px 0 0 #7f7c21, -2px 2px 0 0 #7f7c21,
+          -1px 1px 0 0 #7f7c21;
+        transform: translate3d(6px, -6px, 0px);
+        transition: all 0.5s;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <h2 class="red">Lembar Perhitungan 1</h2>
+    <table class="container">
+      <tr>
+        <th>Interest</th>
+        <td rowspan="2">10%</td>
+        <td class="hasil-perhitungan">0.008333</td>
+      </tr>
+      <tr>
+        <th>∑PV</th>
+        <td class="hasil-perhitungan">0.008333</td>
+      </tr>
+    </table>
+    <table class="container">
+      <thead>
+        <tr>
+          <th>Bulan</th>
+          <th>PV</th>
+          <th>PV = FV/(1+r)<sup>n</sup></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>PV<sub>1</sub></td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>PV<sub>2</sub></td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>PV<sub>3</sub></td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>PV<sub>4</sub></td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>PV<sub>5</sub></td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>PV<sub>6</sub></td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td>PV<sub>7</sub></td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td>PV<sub>8</sub></td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td>PV<sub>9</sub></td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td>PV<sub>10</sub></td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>11</td>
+          <td>PV<sub>11</sub></td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>12</td>
+          <td>PV<sub>12</sub></td>
+          <td>0</td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My very first cool Table</title>
+	<style type="text/css">
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        width: 100%;
+        /* height: 100vh; */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        letter-spacing: 1px;
+        background-color: #0c1022;
+        gap: 2rem;
+        margin: 1rem;
+      }
+      
+		.yellow{
+			color: #FFF842;
+		}
+		.light-blue{
+			color: #4DC3FA;
+		}
+		.blue{
+			color: #185875;
+		}
+		.red{
+			color: #FB667A;
+		}
+		h2{
+			font-weight: 100;
+		}
+		h2 a{
+			text-decoration: none;
+			color: #FB667A;
+			text-transform: lowercase;
+			font-weight: 900;
+		}
+		h2 > a > span{
+			text-transform: uppercase;
+		}
+		.container{
+			margin: auto;
+			margin-top: 150px;
+			border-collapse: collapse;
+			overflow: hidden;
+			text-align: left;
+			font-size: 20px;
+		}
+		.container th, .container td{
+			width: 200px;
+			padding: 10px;
+		}
+		.container td{
+			box-shadow: 1px 1px 3px -1px #000;
+		}
+		.container th{
+	      color:#FFF842;
+	      text-align: center;
+	      background-color: #1F2739;
+	    }
+	    .container td:first-child{ color: #FB667A; }
+	    .container tr:nth-child(odd) {
+	        background-color: #323C50;
+	    }
+	    .container tr:nth-child(even) {
+	        background-color: #2C3446;
+	    }
+      td{
+        color : #4DC3FA;
+      }
+	    .container td:hover{
+	      	background-color: #FFF842;
+	        color: #1F2739;
+	        font-weight: bold;
+	        box-shadow: -6px 6px 0 0 #7F7C21, -5px 5px 0 0 #7F7C21, -4px 4px 0 0 #7F7C21, -3px 3px 0 0 #7F7C21, -2px 2px 0 0 #7F7C21, -1px 1px 0 0 #7F7C21;
+	        transform: translate3d(6px,-6px,0px);
+	        transition: all 0.5s;
+	        cursor: pointer;
+	    }
+	</style>
+</head>
+<body>
+	<h1><span class="yellow">My sexy</span> <span class="light-blue"> < </span> <span class="blue">Table</span> <span class="light-blue"> > </span> </h1>
+	<h2 class="red">Created with <span>love</span> by <a href="https://www.lazycoderji.co"><span>Www</span>.LAZYCoderji.co</a></h2>
+
+	<table class="container">
+		<thead>
+			<tr>
+				<th>Name</th><th>Likes</th><th>Hates</th><th>Crush</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Sunny Leone</td><td>109657</td><td>0</td><td>10000</td></tr>
+			</tr>
+			<tr>
+				<td>Disha Patani</td><td>109657</td><td>0</td><td>10000</td></tr>
+			</tr>
+			<tr>
+				<td>Yami Gautam</td><td>109657</td><td>0</td><td>10000</td></tr>
+			</tr>
+			<tr>
+				<td>Sonakshi Sinha</td><td>109657</td><td>0</td><td>10000</td></tr>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>
