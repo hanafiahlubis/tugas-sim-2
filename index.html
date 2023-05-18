@@ -295,6 +295,7 @@
       });
       document.getElementById("submit").disabled = false;
       const data = await res.json();
+      console.log(data);
       const urlObjectString =  JSON.stringify(data);
       encodedUrlObjectString =  encodeURIComponent(urlObjectString);
       document.getElementById("submit").disabled = false;
