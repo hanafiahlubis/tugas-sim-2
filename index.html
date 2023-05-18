@@ -299,6 +299,7 @@
       const urlObjectString =  JSON.stringify(data);
       encodedUrlObjectString =  encodeURIComponent(urlObjectString);
       document.getElementById("submit").disabled = false;
+      location.href = `/npv/?url=${encodedUrlObjectString}`;
     };
     document.querySelector(".hitung-1").onclick=(e)=>{
       e.preventDefault();
