@@ -277,7 +277,7 @@
     document.kirim.onsubmit =async (e) => {
       e.preventDefault();
       document.getElementById("submit").disabled = true;
-       const res = await fetch("/", {
+       const res = await fetch("http://localhost:8080/leasing", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
