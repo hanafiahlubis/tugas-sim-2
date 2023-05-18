@@ -273,7 +273,7 @@
     </div>
   </div>
   <script>
-    let data = "";
+    let encodedUrlObjectString="";
     document.kirim.onsubmit =async (e) => {
       e.preventDefault();
       document.getElementById("submit").disabled = true;
@@ -294,36 +294,38 @@
         }),
       });
       document.getElementById("submit").disabled = false;
-      data = await res.json();
+      const data = await res.json();
+      const urlObjectString =  JSON.stringify(data);
+      encodedUrlObjectString =  encodeURIComponent(urlObjectString);
       document.getElementById("submit").disabled = false;
     };
     document.querySelector(".hitung-1").onclick=(e)=>{
       e.preventDefault();
-      location.href = `/sheet1/?url=${data}`;
+      location.href = `/sheet1/?url=${encodedUrlObjectString}`;
     }
     document.querySelector(".hitung-2").onclick=(e)=>{
       e.preventDefault();
-      location.href = `/sheet2/?url=${data}`;
+      location.href = `/sheet2/?url=${encodedUrlObjectString}`;
     }
     document.querySelector(".hitung-3").onclick=(e)=>{
       e.preventDefault();
-      location.href = `/sheet3/?url=${data}`;
+      location.href = `/sheet3/?url=${encodedUrlObjectString}`;
     }
      document.querySelector(".hitung-4").onclick=(e)=>{
       e.preventDefault();
-      location.href = `/sheet4/?url=${data}`;
+      location.href = `/sheet4/?url=${encodedUrlObjectString}`;
     }
      document.querySelector(".hitung-5").onclick=(e)=>{
       e.preventDefault();
-      location.href = `/sheet5/?url=${data}`;
+      location.href = `/sheet5/?url=${encodedUrlObjectString}`;
     }
      document.querySelector(".hitung-irr").onclick=(e)=>{
       e.preventDefault();
-      location.href = `/IRR/?url=${data}`;
+      location.href = `/IRR/?url=${encodedUrlObjectString}`;
     }
     document.querySelector(".npv").onclick=(e)=>{
       e.preventDefault();
-      location.href = `/npv/?url=${data}`;
+      location.href = `/npv/?url=${encodedUrlObjectString}`;
     }
     
     function openNav() {
