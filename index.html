@@ -152,101 +152,8 @@
       display: block;
     }
 
-    @media (max-width: 450px) {
-      .irr-form-container {
-        max-width: 400px;
-        max-height: 400px;
-      }
-
-      .irr-form>form {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-
-      h2 {
-        font-size: 33px;
-      }
-
-      .input-text {
-        width: 95%;
-      }
-
-      #irr-button {
-        margin-top: 46px;
-        width: 170px;
-      }
-
-      #irr-button button {
-        font-size: 17px;
-      }
-
-      .fotter {
-        gap: 4rem;
-      }
-
-      .b .fotter>a {
-        font-size: 16px;
-      }
-    }
-
-    @media (max-width: 410px) {
-      .irr-form-container {
-        max-width: 320px;
-      }
-
-      ::placeholder {
-        font-size: 12px;
-      }
-
-      h2 {
-        font-size: 24px;
-      }
-
-      .input-group {
-        display: flex;
-        justify-content: center;
-      }
-
-      .fa {
-        display: none;
-      }
-
-      #irr-button {
-        display: flex;
-        justify-content: center;
-      }
-
-      #irr-button button {
-        width: 70%;
-        font-size: 14px;
-        height: 78%;
-      }
-
-      .fotter a {
-        font-size: 11px;
-      }
-    }
-
-    @media (max-width: 325px) {
-      .irr-form-container {
-        max-width: 272px;
-        max-height: 373px;
-      }
-
-      #irr-button {
-        margin-top: 22px;
-      }
-
-      .fotter {
-        gap: 1.3rem;
-      }
-
-      .fotter a {
-        font-size: 13px;
-      }
-    }
-
+    
+    
     .header {
       display: flex;
       align-items: center;
@@ -267,6 +174,7 @@
     }
 
     .sidepanel a {
+      color: #00ccff;
       padding: 8px 8px 8px 32px;
       text-decoration: none;
       font-size: 25px;
@@ -305,17 +213,15 @@
   <div class="irr-form-container">
     <div class="irr-form">
       <span class="header">
-        <!-- <img src="" alt="tidak masuk" /> -->
-
         <div id="my-sidepanel" class="sidepanel">
           <a href="javascript:void(0)" class="close-btn">×</a>
-          <a href="/npv/">NPV</a>
-          <a href="./sheet1/">Lembar Perhitungan 1</a>
-          <a href="./profil/">Lembar Perhitungan 2</a>
-          <a href="./profil/">Lembar Perhitungan 3</a>
-          <a href="./profil/">Lembar Perhitungan 4</a>
-          <a href="./profil/">Lembar Perhitungan 5</a>
-          <a href="./profil/">LEMBAR IRR</a>
+          <a href="" class="npv">NPV</a>
+          <a href=""  class="hitung-1">Lembar Perhitungan 1</a>
+          <a href="" class="hitung-2">Lembar Perhitungan 2</a>
+          <a href="" class="hitung-3">Lembar Perhitungan 3</a>
+          <a href="" class="hitung-4">Lembar Perhitungan 4</a>
+          <a href="" class="hitung-5">Lembar Perhitungan 5</a>
+          <a href="" class="hitung-irr">LEMBAR IRR</a>
         </div>
 
         <button class="open-btn" onclick="openNav()">☰</button>
@@ -367,10 +273,11 @@
     </div>
   </div>
   <script>
+    let data = "";
     document.kirim.onsubmit =async (e) => {
       e.preventDefault();
       document.getElementById("submit").disabled = true;
-      fetch("/", {
+       const res = await fetch("/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -387,10 +294,38 @@
         }),
       });
       document.getElementById("submit").disabled = false;
-      console.log(await res.json());
+      data = await res.json();
       document.getElementById("submit").disabled = false;
     };
-
+    document.querySelector(".hitung-1").onclick=(e)=>{
+      e.preventDefault();
+      location.href = `/sheet1/?url=${data}`;
+    }
+    document.querySelector(".hitung-2").onclick=(e)=>{
+      e.preventDefault();
+      location.href = `/sheet2/?url=${data}`;
+    }
+    document.querySelector(".hitung-3").onclick=(e)=>{
+      e.preventDefault();
+      location.href = `/sheet3/?url=${data}`;
+    }
+     document.querySelector(".hitung-4").onclick=(e)=>{
+      e.preventDefault();
+      location.href = `/sheet4/?url=${data}`;
+    }
+     document.querySelector(".hitung-5").onclick=(e)=>{
+      e.preventDefault();
+      location.href = `/sheet5/?url=${data}`;
+    }
+     document.querySelector(".hitung-irr").onclick=(e)=>{
+      e.preventDefault();
+      location.href = `/IRR/?url=${data}`;
+    }
+    document.querySelector(".npv").onclick=(e)=>{
+      e.preventDefault();
+      location.href = `/npv/?url=${data}`;
+    }
+    
     function openNav() {
       const sidepanel = document.getElementById("my-sidepanel");
       sidepanel.style.width = "300px";

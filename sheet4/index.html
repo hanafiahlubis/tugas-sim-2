@@ -165,9 +165,10 @@
       </tbody>
     </table>
     <script>
-      // const res =  await fetch("");
-      // const data = await res.json();
-     const data = {
+     const searchParams = new URLSearchParams(location.search);
+      const data = searchParams.get("url");
+      
+     const dataw = {
     "leasing": {
         "hargaMobil": 228400000,
         "dp": 135711000,
