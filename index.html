@@ -365,7 +365,7 @@
               type="text"
               placeholder="Invalasi Tahun ke-1"
               class="input-text"
-              name="invalasi-ke-1"
+              name="invalasi1"
               required
               autocomplete="off"
             />
@@ -376,7 +376,7 @@
               type="text"
               placeholder="Invalasi Tahun ke-2"
               class="input-text"
-              name="invalasi-ke-2"
+              name="invalasi2"
               required
               autocomplete="off"
             />
@@ -387,7 +387,7 @@
               type="text"
               placeholder="Invalasi Tahun ke-3"
               class="input-text"
-              name="invalasi-ke-3"
+              name="invalasi3"
               required
               autocomplete="off"
             />
@@ -398,7 +398,7 @@
               type="text"
               placeholder="Invalasi Tahun ke-4"
               class="input-text"
-              name="invalasi-ke-4"
+              name="invalasi4"
               required
               autocomplete="off"
             />
@@ -409,7 +409,7 @@
               type="text"
               placeholder="Invalasi Tahun ke-5"
               class="input-text"
-              name="invalasi-ke-5"
+              name="invalasi5"
               required
               autocomplete="off"
             />
@@ -424,18 +424,22 @@
       document.kirim.onsubmit = (e) => {
         e.preventDefault();
         document.getElementById("submit").disabled = true;
-        // fetch("/", {
-        //     method: "POST",
-        //     headers: {
-        //         "Content-Type": "application/json",
-        //     },
-        //     body: JSON.stringify({
-        //         modal: document.kirim.modal.value,
-        //         tahun1: document.kirim.tahun1.value,
-        //         tahun2: document.kirim.tahun2.value,
-        //         tahun3: document.kirim.tahun3.value,
-        //     }),
-        // });
+        fetch("/", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                harga: document.kirim.harga.value,
+                dp: document.kirim.dp.value,
+                cicilan: document.kirim.cicilan.value,
+                invalasi1: document.kirim.invalasi1.value,
+                invalasi2: document.kirim.invalasi2.value,
+                invalasi3: document.kirim.invalasi3.value,
+                invalasi4: document.kirim.invalasi4.value,
+                invalasi5: document.kirim.invalasi5.value
+            }),
+        });
         document.getElementById("submit").disabled = false;
       };
 

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>My very first cool Table</title>
-	<style type="text/css">
+  <head>
+    <title>My very first cool Table</title>
+    <style type="text/css">
       * {
         margin: 0;
         padding: 0;
@@ -18,99 +18,280 @@
         flex-direction: column;
         letter-spacing: 1px;
         background-color: #0c1022;
-        gap: 2rem;
+        /* gap: 2rem; */
         margin: 1rem;
       }
-      
-		.yellow{
-			color: #FFF842;
-		}
-		.light-blue{
-			color: #4DC3FA;
-		}
-		.blue{
-			color: #185875;
-		}
-		.red{
-			color: #FB667A;
-		}
-		h2{
-			font-weight: 100;
-		}
-		h2 a{
-			text-decoration: none;
-			color: #FB667A;
-			text-transform: lowercase;
-			font-weight: 900;
-		}
-		h2 > a > span{
-			text-transform: uppercase;
-		}
-		.container{
-			margin: auto;
-			margin-top: 150px;
-			border-collapse: collapse;
-			overflow: hidden;
-			text-align: left;
-			font-size: 20px;
-		}
-		.container th, .container td{
-			width: 200px;
-			padding: 10px;
-		}
-		.container td{
-			box-shadow: 1px 1px 3px -1px #000;
-		}
-		.container th{
-	      color:#FFF842;
-	      text-align: center;
-	      background-color: #1F2739;
-	    }
-	    .container td:first-child{ color: #FB667A; }
-	    .container tr:nth-child(odd) {
-	        background-color: #323C50;
-	    }
-	    .container tr:nth-child(even) {
-	        background-color: #2C3446;
-	    }
-      td{
-        color : #4DC3FA;
+      .red {
+        color: #fb667a;
       }
-	    .container td:hover{
-	      	background-color: #FFF842;
-	        color: #1F2739;
-	        font-weight: bold;
-	        box-shadow: -6px 6px 0 0 #7F7C21, -5px 5px 0 0 #7F7C21, -4px 4px 0 0 #7F7C21, -3px 3px 0 0 #7F7C21, -2px 2px 0 0 #7F7C21, -1px 1px 0 0 #7F7C21;
-	        transform: translate3d(6px,-6px,0px);
-	        transition: all 0.5s;
-	        cursor: pointer;
-	    }
-	</style>
-</head>
-<body>
-	<h1><span class="yellow">My sexy</span> <span class="light-blue"> < </span> <span class="blue">Table</span> <span class="light-blue"> > </span> </h1>
-	<h2 class="red">Created with <span>love</span> by <a href="https://www.lazycoderji.co"><span>Www</span>.LAZYCoderji.co</a></h2>
+      h2 a {
+        text-decoration: none;
+        color: #fb667a;
+        text-transform: lowercase;
+        font-weight: 900;
+      }
+      h2 > a > span {
+        text-transform: uppercase;
+      }
+      .container {
+        margin: auto;
+        margin-top: 8px;
+        border-collapse: collapse;
+        overflow: hidden;
+        text-align: left;
+        font-size: 20px;
+      }
+      .container th,
+      .container td {
+        width: 200px;
+        padding: 10px;
+      }
+      .container td {
+        box-shadow: 1px 1px 3px -1px #000;
+      }
+      .container th {
+        color: #fff842;
+        text-align: center;
+        background-color: #1f2739;
+      }
+      .container td:first-child {
+        color: #fb667a;
+      }
+      .container tr:nth-child(odd) {
+        background-color: #323c50;
+      }
+      .container tr:nth-child(even) {
+        background-color: #2c3446;
+      }
+      td {
+        color: #4dc3fa;
+      }
+      .container td:hover,
+      th:hover {
+        background-color: #fff842;
+        color: #1f2739;
+        font-weight: bold;
+        box-shadow: -6px 6px 0 0 #7f7c21, -5px 5px 0 0 #7f7c21,
+          -4px 4px 0 0 #7f7c21, -3px 3px 0 0 #7f7c21, -2px 2px 0 0 #7f7c21,
+          -1px 1px 0 0 #7f7c21;
+        transform: translate3d(6px, -6px, 0px);
+        transition: all 0.5s;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <h2 class="red">Lembar Perhitungan NPV</h2>
+    <table class="container">
+      <thead>
+        <tr>
+          <th>Uraian</th>
+          <th>Nominal</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Harga Mobil</td>
+          <td id="harga"></td>
+        </tr>
+        <tr>
+          <td>DP</td>
+          <td id="dp"></td>
+        </tr>
+        <tr>
+          <td>Cicilan</td>
+          <td id="cilan"></td>
+        </tr>
+      </tbody>
+    </table>
 
-	<table class="container">
-		<thead>
-			<tr>
-				<th>Name</th><th>Likes</th><th>Hates</th><th>Crush</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td>Sunny Leone</td><td>109657</td><td>0</td><td>10000</td></tr>
-			</tr>
-			<tr>
-				<td>Disha Patani</td><td>109657</td><td>0</td><td>10000</td></tr>
-			</tr>
-			<tr>
-				<td>Yami Gautam</td><td>109657</td><td>0</td><td>10000</td></tr>
-			</tr>
-			<tr>
-				<td>Sonakshi Sinha</td><td>109657</td><td>0</td><td>10000</td></tr>
-			</tr>
-		</tbody>
-	</table>
-</body>
+    <table class="container">
+      <thead>
+        <tr>
+          <th>NPV</th>
+          <th>Interest</th>
+          <th>NPV = ∑ PV - Investasi</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td class="interst a-1"></td>
+          <td class="npv-1"></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td class="interst a-2"></td>
+          <td class="npv-2"></td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td class="interst a-3"></td>
+          <td class="npv-3"></td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td class="interst a-4"></td>
+          <td class="npv-4"></td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td class="interst a-5"></td>
+          <td class="npv-5"></td>
+        </tr>
+      </tbody>
+    </table>
+    <script>
+      // const res =  await fetch("");
+      // const data = await res.json();
+      const data = {
+        leasing: {
+          hargaMobil: 228400000,
+          dp: 135711000,
+          cicilan: 9517000,
+        },
+        interst: {
+          intertsNpv: [10, 15, 20, 25, 30],
+          npv: [
+            6947289.987588152, 4553834.630533591, 2243379.558591202,
+            12446.782671675086, -2142275.677023977,
+          ],
+          workSheet: [
+            {
+              interst: 0.008333333333333333,
+              sigmaPv: 9.963628998758815e7,
+              bulan: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+              pvNumber: [
+                "PV1",
+                "PV2",
+                "PV3",
+                "PV4",
+                "PV5",
+                "PV6",
+                "PV7",
+                "PV8",
+                "PV9",
+                "PV10",
+                "PV11",
+              ],
+              pv: [
+                9438347.107438017, 9360344.238781504, 9282986.021932071,
+                9206267.129188832, 9130182.276881484, 9054726.225006433,
+                8979893.776865883, 8905679.778709967, 8832079.119381785,
+                8759086.729965407, 8686697.583436769, 8686697.583436769,
+              ],
+            },
+            {
+              interst: 0.012499999999999999,
+              sigmaPv: 9.724283463053359e7,
+              bulan: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+              pvNumber: [
+                "PV1",
+                "PV2",
+                "PV3",
+                "PV4",
+                "PV5",
+                "PV6",
+                "PV7",
+                "PV8",
+                "PV9",
+                "PV10",
+                "PV11",
+              ],
+              pv: [
+                9399506.172839507, 9283462.886755068, 9168852.233832167,
+                9055656.527241647, 8943858.298510268, 8833440.294824958,
+                8724385.476370329, 8616677.01369909, 8510298.285134904,
+                8405232.874207314, 8301464.567118335,
+              ],
+            },
+            {
+              interst: 0.016666666666666666,
+              sigmaPv: 9.49323795585912e7,
+              bulan: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+              pvNumber: [
+                "PV1",
+                "PV2",
+                "PV3",
+                "PV4",
+                "PV5",
+                "PV6",
+                "PV7",
+                "PV8",
+                "PV9",
+                "PV10",
+                "PV11",
+              ],
+              pv: [
+                9360983.606557377, 9207524.858908895, 9056581.828434981,
+                8908113.273870474, 8762078.630036531, 8618437.996757245,
+                8477152.127957946, 8338182.420942243, 8201490.905844829,
+                8067040.235257209, 7934793.674023485,
+              ],
+            },
+            {
+              interst: 0.020833333333333332,
+              sigmaPv: 9.270144678267168e7,
+              bulan: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+              pvNumber: [
+                "PV1",
+                "PV2",
+                "PV3",
+                "PV4",
+                "PV5",
+                "PV6",
+                "PV7",
+                "PV8",
+                "PV9",
+                "PV10",
+                "PV11",
+              ],
+              pv: [
+                9322775.510204082, 9132514.785506042, 8946136.932740612,
+                8763562.709623456, 8584714.491059713, 8409516.236140128,
+                8237893.455810738, 8069773.181202358, 7905083.93260639,
+                7743755.689083812, 7585719.858694347,
+              ],
+            },
+            {
+              interst: 0.024999999999999998,
+              sigmaPv: 9.054672432297602e7,
+              bulan: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+              pvNumber: [
+                "PV1",
+                "PV2",
+                "PV3",
+                "PV4",
+                "PV5",
+                "PV6",
+                "PV7",
+                "PV8",
+                "PV9",
+                "PV10",
+                "PV11",
+              ],
+              pv: [
+                9284878.048780488, 9058417.60856633, 8837480.59372325,
+                8621932.28655927, 8411641.255179776, 8206479.273346124,
+                8006321.2422889015, 7811045.114428198, 7620531.818954339,
+                7434665.189223747, 7253331.891925607,
+              ],
+            },
+          ],
+          irrPercentage: 0,
+          irr: 0,
+        },
+      };
+      document.querySelector("#harga").innerHTML =
+        "RP. " + data.leasing.hargaMobil.toLocaleString();
+      document.querySelector("#dp").innerHTML =
+        "RP. " + data.leasing.dp.toLocaleString();
+      document.querySelector("#cilan").innerHTML =
+        "RP. " + data.leasing.cicilan.toLocaleString();
+        document.querySelectorAll(".interst").forEach((e,i)=>{
+          document.querySelector(`.a-${i+1}`).innerHTML = data.interst.intertsNpv[i] + "%";
+          document.querySelector(`.npv-${i+1}`).innerHTML = "RP. " + data.interst.npv[i].toLocaleString();
+        });
+    </script>
+  </body>
 </html>
