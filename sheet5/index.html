@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>My very first cool Table</title>
+    <title>leasing</title>
     <style type="text/css">
       * {
         margin: 0;
@@ -157,11 +157,6 @@
           <td>PV<sub>11</sub></td>
           <td class="pv-11 sama"></td>
         </tr>
-        <tr>
-          <td>12</td>
-          <td>PV<sub>12</sub></td>
-          <td class="pv-12 sama"></td>
-        </tr>
       </tbody>
     </table>
     <script>
@@ -172,15 +167,15 @@
       document.querySelector(".interts").innerHTML =
         data.interst.intertsNpv[4] + "%";
       document.querySelector(".hasil-perhitungan").innerHTML =
-        data.interst.workSheet[0].interst.toFixed(5);
+        data.interst.workSheet[4].interst.toFixed(5);
       document.querySelector(".pv").innerHTML =
         "RP. " +
-        data.interst.workSheet[0].sigmaPv.toLocaleString("en-US", {
+        data.interst.workSheet[4].sigmaPv.toLocaleString("en-US", {
           style: "decimal",
         });
       document.querySelectorAll(".sama").forEach((v, i) => {
         // console.log(i);
-        const angka = data.interst.workSheet[0].pv[i].toFixed(0);
+        const angka = data.interst.workSheet[4].pv[i].toFixed(0);
         document.querySelector(`.pv-${i + 1}`).innerHTML =
           "RP. " + parseInt(angka).toLocaleString();
       });

@@ -145,16 +145,18 @@
       const params = new URLSearchParams(location.search);
       const urlObjectString = params.get("url");
       const data = JSON.parse(decodeURIComponent(urlObjectString));
-      
+
       document.querySelector("#harga").innerHTML =
         "RP. " + data.leasing.hargaMobil.toLocaleString();
       document.querySelector("#dp").innerHTML =
         "RP. " + data.leasing.dp.toLocaleString();
       document.querySelector("#cilan").innerHTML =
         "RP. " + data.leasing.cicilan.toLocaleString();
+
       document.querySelectorAll(".interst").forEach((e, i) => {
         document.querySelector(`.a-${i + 1}`).innerHTML =
           data.interst.intertsNpv[i] + "%";
+
         document.querySelector(`.npv-${i + 1}`).innerHTML =
           "RP. " + data.interst.npv[i].toLocaleString();
       });

@@ -157,11 +157,7 @@
           <td>PV<sub>11</sub></td>
           <td class="pv-11 sama"></td>
         </tr>
-        <tr>
-          <td>12</td>
-          <td>PV<sub>12</sub></td>
-          <td class="pv-12 sama"></td>
-        </tr>
+       
       </tbody>
     </table>
     <script>
@@ -171,11 +167,11 @@
       const urlObjectString = params.get("url");
       const data = JSON.parse(decodeURIComponent(urlObjectString));
     document.querySelector(".interts").innerHTML = data.interst.intertsNpv[2] + "%";
-    document.querySelector(".hasil-perhitungan").innerHTML =data.interst.workSheet[0].interst.toFixed(5) ;
-    document.querySelector(".pv").innerHTML = "RP. " + data.interst.workSheet[0].sigmaPv.toLocaleString("en-US",{ style: 'decimal' });
+    document.querySelector(".hasil-perhitungan").innerHTML =data.interst.workSheet[2].interst.toFixed(5) ;
+    document.querySelector(".pv").innerHTML = "RP. " + data.interst.workSheet[2].sigmaPv.toLocaleString("en-US",{ style: 'decimal' });
     document.querySelectorAll(".sama").forEach((v,i)=>{
       // console.log(i);
-      const angka = data.interst.workSheet[0].pv[i].toFixed(0) 
+      const angka = data.interst.workSheet[2].pv[i].toFixed(0) 
       document.querySelector(`.pv-${i+1}`).innerHTML =  "RP. " + parseInt(angka).toLocaleString();
     });
   </script>
