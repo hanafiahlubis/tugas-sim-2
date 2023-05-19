@@ -298,38 +298,39 @@
       document.getElementById("submit").disabled = false;
       console.log(data);
       alert("Silahkan Check");
-      const urlObjectString =  JSON.stringify(data);
-      encodedUrlObjectString =  encodeURIComponent(urlObjectString);
+      // const urlObjectString =  JSON.stringify(data);
+      // encodedUrlObjectString =  encodeURIComponent(urlObjectString);
       document.getElementById("submit").disabled = false;
-      location.href = `/npv/?url=${encodedUrlObjectString}`;
+      // location.href = `/npv/?url=${encodedUrlObjectString}`;
+      location.href = `/npv/`;
     };
     document.querySelector(".hitung-1").onclick=(e)=>{
       e.preventDefault();
-      location.href = `/sheet1/?url=${encodedUrlObjectString}`;
+      location.href = `/sheet1/`;
     }
     document.querySelector(".hitung-2").onclick=(e)=>{
       e.preventDefault();
-      location.href = `/sheet2/?url=${encodedUrlObjectString}`;
+      location.href = `/sheet2/`;
     }
     document.querySelector(".hitung-3").onclick=(e)=>{
       e.preventDefault();
-      location.href = `/sheet3/?url=${encodedUrlObjectString}`;
+      location.href = `/sheet3/`;
     }
      document.querySelector(".hitung-4").onclick=(e)=>{
       e.preventDefault();
-      location.href = `/sheet4/?url=${encodedUrlObjectString}`;
+      location.href = `/sheet4/`;
     }
      document.querySelector(".hitung-5").onclick=(e)=>{
       e.preventDefault();
-      location.href = `/sheet5/?url=${encodedUrlObjectString}`;
+      location.href = `/sheet5/`;
     }
      document.querySelector(".hitung-irr").onclick=(e)=>{
       e.preventDefault();
-      location.href = `/IRR/?url=${encodedUrlObjectString}`;
+      location.href = `/IRR/`;
     }
     document.querySelector(".npv").onclick=(e)=>{
       e.preventDefault();
-      location.href = `/npv/?url=${encodedUrlObjectString}`;
+      location.href = `/npv/`;
     }
     
     function openNav() {
