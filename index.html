@@ -283,14 +283,14 @@
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          harga: parseInt(document.kirim.harga.value),
+          hargaMobil: parseInt(document.kirim.harga.value),
           dp: parseInt(document.kirim.dp.value),
           cicilan: parseInt(document.kirim.cicilan.value),
-          invalasi1: parseInt(document.kirim.invalasi1.value),
-          invalasi2: parseInt(document.kirim.invalasi2.value),
-          invalasi3: parseInt(document.kirim.invalasi3.value),
-          invalasi4: parseInt(document.kirim.invalasi4.value),
-          invalasi5: parseInt(document.kirim.invalasi5.value)
+          interstFirst: parseInt(document.kirim.invalasi1.value),
+          interstSecond: parseInt(document.kirim.invalasi2.value),
+          interstThird: parseInt(document.kirim.invalasi3.value),
+          interstFourth: parseInt(document.kirim.invalasi4.value),
+          interstFifth: parseInt(document.kirim.invalasi5.value)
         }),
       });
       const data = await res.json();
@@ -302,7 +302,7 @@
       // encodedUrlObjectString =  encodeURIComponent(urlObjectString);
       document.getElementById("submit").disabled = false;
       // location.href = `/npv/?url=${encodedUrlObjectString}`;
-      location.href = `/npv/`;
+      // location.href = `/npv/`;
     };
     document.querySelector(".hitung-1").onclick=(e)=>{
       e.preventDefault();
