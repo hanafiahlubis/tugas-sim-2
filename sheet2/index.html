@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>My very first cool Table</title>
+    <title>Tugas Sim</title>
     <style type="text/css">
       * {
         margin: 0;
@@ -221,13 +221,14 @@
         </tr>
       </tbody>
     </table>
-    <script>    const params = new URLSearchParams(location.search);
+    <script>  
+      const params = new URLSearchParams(location.search);
       const urlObjectString = params.get("url");
       const data = JSON.parse(decodeURIComponent(urlObjectString));
 
       const urlObjectObjeck = JSON.stringify(data);
       encodedUrlObjectString = encodeURIComponent(urlObjectObjeck);
-
+  
       function openNav() {
         const sidepanel = document.getElementById("my-sidepanel");
         sidepanel.style.width = "300px";
