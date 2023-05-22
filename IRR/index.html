@@ -77,11 +77,72 @@
         transform: translate3d(6px, -6px, 0px);
         transition: all 0.5s;
         cursor: pointer;
+      }      .sidepanel {
+        display: none;
+        left: 27%;
+        position: fixed;
+        z-index: 100;
+        height: 21rem;
+        top: 0;
+        background-color: #0c1022;
+        transition: 0.5s;
+        padding-top: 60px;
+        overflow: hidden;
       }
+
+      .sidepanel a {
+        color: #00ccff;
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 17px;
+        display: block;
+        transition: 0.3s;
+      }
+
+      .sidepanel a:hover {
+        color: #ee00ff;
+      }
+
+      .sidepanel .close-btn {
+        position: absolute;
+        top: 0px;
+        right: 25px;
+        font-size: 36px;
+      }
+
+      .open-btn {
+        left: 27%;
+        top: 0%;
+        font-size: 20px;
+        cursor: pointer;
+        background-color: #0c1022;
+        padding: 10px 15px;
+        border: none;
+        color: #00ccff;
+        position: fixed;
+      }
+
+      .open-btn:hover {
+        background-color: #444;
+      }
+
     </style>
   </head>
   <body>
-    <h2 class="red">Lembar Perhitungan 1</h2>
+    <h2 class="red">Lembar Perhitungan IRR</h2>
+    <div id="my-sidepanel" class="sidepanel">
+      <a href="javascript:void(0)" class="close-btn">×</a>
+      <a href="" class="npv">Home</a>
+      <a href="" class="hitung-1">NPV</a>
+      <a href="" class="hitung-2">Lembar Perhitungan 1</a>
+      <a href="" class="hitung-3">Lembar Perhitungan 2</a>
+      <a href="" class="hitung-4">Lembar Perhitungan 3</a>
+      <a href="" class="hitung-5">Lembar Perhitungan 4</a>
+      <a href="" class="hitung-irr">Lembar Perhitungan 5</a>
+    </div>
+    <div>
+      <button class="open-btn" onclick="openNav()">☰</button>
+    </div>
     <table class="container">
       <tr>
         <th>Interest</th>
@@ -157,268 +218,232 @@
           <td>PV<sub>11</sub></td>
           <td class="pv-11 sama"></td>
         </tr>
-        <tr>
-          <td>12</td>
-          <td>PV<sub>12</sub></td>
-          <td class="pv-12 sama"></td>
-        </tr>
       </tbody>
     </table>
     <script>
-      // const searchParams = new URLSearchParams(location.search);
-      // const data = searchParams.get("url");
-      
-     const data = {
-    "leasing": {
-        "hargaMobil": 228400000,
-        "dp": 135711000,
-        "cicilan": 9517000
-    },
-    "interst": {
-        "intertsNpv": [
-            10,
-            15,
-            20,
-            25,
-            30
-        ],
-        "npv": [
-            6947289.987588152,
-            4553834.630533591,
-            2243379.558591202,
-            12446.782671675086,
-            -2142275.677023977
-        ],
-        "workSheet": [
+    const params = new URLSearchParams(location.search);
+      const urlObjectString = params.get("url");
+      let data = JSON.parse(decodeURIComponent(urlObjectString));
+
+      const urlObjectObjeck = JSON.stringify(data);
+      encodedUrlObjectString = encodeURIComponent(urlObjectObjeck);
+
+
+      function openNav() {
+        const sidepanel = document.getElementById("my-sidepanel");
+        sidepanel.style.width = "300px";
+        sidepanel.style.display = "block";
+      }
+
+      document.querySelector(".close-btn").addEventListener("click", () => {
+        document.getElementById("my-sidepanel").style.width = "0";
+      });
+
+      document.querySelector(".npv").onclick = (e) => {
+        e.preventDefault();
+        location.href = `../?url=${encodedUrlObjectString}`;
+      };
+      document.querySelector(".hitung-1").onclick = (e) => {
+        e.preventDefault();
+        location.href = `../npv/?url=${encodedUrlObjectString}`;
+      };
+      document.querySelector(".hitung-2").onclick = (e) => {
+        e.preventDefault();
+        location.href = `../sheet1/?url=${encodedUrlObjectString}`;
+      };
+      document.querySelector(".hitung-3").onclick = (e) => {
+        e.preventDefault();
+        location.href = `../sheet2/?url=${encodedUrlObjectString}`;
+      };
+      document.querySelector(".hitung-4").onclick = (e) => {
+        e.preventDefault();
+        location.href = `../sheet3/?url=${encodedUrlObjectString}`;
+      };
+      document.querySelector(".hitung-5").onclick = (e) => {
+        e.preventDefault();
+        location.href = `../sheet4/?url=${encodedUrlObjectString}`;
+      };
+      document.querySelector(".hitung-irr").onclick = (e) => {
+        e.preventDefault();
+        location.href = `../sheet5/?url=${encodedUrlObjectString}`;
+      };
+
+       data = {
+        leasing: {
+          hargaMobil: 228400000,
+          dp: 135711000,
+          cicilan: 9517000,
+        },
+        interst: {
+          intertsNpv: [10, 15, 20, 25, 30],
+          npv: [
+            6947289.987588152, 4553834.630533591, 2243379.558591202,
+            12446.782671675086, -2142275.677023977,
+          ],
+          irr: 25.02839999922165,
+          workSheet: [
             {
-                "interst": 0.008333333333333333,
-                "sigmaPv": 9.963628998758815E7,
-                "bulan": [
-                    1,
-                    2,
-                    3,
-                    4,
-                    5,
-                    6,
-                    7,
-                    8,
-                    9,
-                    10,
-                    11
-                ],
-                "pvNumber": [
-                    "PV1",
-                    "PV2",
-                    "PV3",
-                    "PV4",
-                    "PV5",
-                    "PV6",
-                    "PV7",
-                    "PV8",
-                    "PV9",
-                    "PV10",
-                    "PV11"
-                ],
-                "pv": [
-                    9438347.107438017,
-                    9360344.238781504,
-                    9282986.021932071,
-                    9206267.129188832,
-                    9130182.276881484,
-                    9054726.225006433,
-                    8979893.776865883,
-                    8905679.778709967,
-                    8832079.119381785,
-                    8759086.729965407,
-                    8686697.583436769,
-                    8686697.583436769
-                ]
+              interst: 0.008333333333333333,
+              sigmaPv: 9.963628998758815e7,
+              bulan: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+              pvNumber: [
+                "PV1",
+                "PV2",
+                "PV3",
+                "PV4",
+                "PV5",
+                "PV6",
+                "PV7",
+                "PV8",
+                "PV9",
+                "PV10",
+                "PV11",
+              ],
+              pv: [
+                9438347.107438017, 9360344.238781504, 9282986.021932071,
+                9206267.129188832, 9130182.276881484, 9054726.225006433,
+                8979893.776865883, 8905679.778709967, 8832079.119381785,
+                8759086.729965407, 8686697.583436769,
+              ],
             },
             {
-                "interst": 0.012499999999999999,
-                "sigmaPv": 9.724283463053359E7,
-                "bulan": [
-                    1,
-                    2,
-                    3,
-                    4,
-                    5,
-                    6,
-                    7,
-                    8,
-                    9,
-                    10,
-                    11
-                ],
-                "pvNumber": [
-                    "PV1",
-                    "PV2",
-                    "PV3",
-                    "PV4",
-                    "PV5",
-                    "PV6",
-                    "PV7",
-                    "PV8",
-                    "PV9",
-                    "PV10",
-                    "PV11"
-                ],
-                "pv": [
-                    9399506.172839507,
-                    9283462.886755068,
-                    9168852.233832167,
-                    9055656.527241647,
-                    8943858.298510268,
-                    8833440.294824958,
-                    8724385.476370329,
-                    8616677.01369909,
-                    8510298.285134904,
-                    8405232.874207314,
-                    8301464.567118335
-                ]
+              interst: 0.012499999999999999,
+              sigmaPv: 9.724283463053359e7,
+              bulan: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+              pvNumber: [
+                "PV1",
+                "PV2",
+                "PV3",
+                "PV4",
+                "PV5",
+                "PV6",
+                "PV7",
+                "PV8",
+                "PV9",
+                "PV10",
+                "PV11",
+              ],
+              pv: [
+                9399506.172839507, 9283462.886755068, 9168852.233832167,
+                9055656.527241647, 8943858.298510268, 8833440.294824958,
+                8724385.476370329, 8616677.01369909, 8510298.285134904,
+                8405232.874207314, 8301464.567118335,
+              ],
             },
             {
-                "interst": 0.016666666666666666,
-                "sigmaPv": 9.49323795585912E7,
-                "bulan": [
-                    1,
-                    2,
-                    3,
-                    4,
-                    5,
-                    6,
-                    7,
-                    8,
-                    9,
-                    10,
-                    11
-                ],
-                "pvNumber": [
-                    "PV1",
-                    "PV2",
-                    "PV3",
-                    "PV4",
-                    "PV5",
-                    "PV6",
-                    "PV7",
-                    "PV8",
-                    "PV9",
-                    "PV10",
-                    "PV11"
-                ],
-                "pv": [
-                    9360983.606557377,
-                    9207524.858908895,
-                    9056581.828434981,
-                    8908113.273870474,
-                    8762078.630036531,
-                    8618437.996757245,
-                    8477152.127957946,
-                    8338182.420942243,
-                    8201490.905844829,
-                    8067040.235257209,
-                    7934793.674023485
-                ]
+              interst: 0.016666666666666666,
+              sigmaPv: 9.49323795585912e7,
+              bulan: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+              pvNumber: [
+                "PV1",
+                "PV2",
+                "PV3",
+                "PV4",
+                "PV5",
+                "PV6",
+                "PV7",
+                "PV8",
+                "PV9",
+                "PV10",
+                "PV11",
+              ],
+              pv: [
+                9360983.606557377, 9207524.858908895, 9056581.828434981,
+                8908113.273870474, 8762078.630036531, 8618437.996757245,
+                8477152.127957946, 8338182.420942243, 8201490.905844829,
+                8067040.235257209, 7934793.674023485,
+              ],
             },
             {
-                "interst": 0.020833333333333332,
-                "sigmaPv": 9.270144678267168E7,
-                "bulan": [
-                    1,
-                    2,
-                    3,
-                    4,
-                    5,
-                    6,
-                    7,
-                    8,
-                    9,
-                    10,
-                    11
-                ],
-                "pvNumber": [
-                    "PV1",
-                    "PV2",
-                    "PV3",
-                    "PV4",
-                    "PV5",
-                    "PV6",
-                    "PV7",
-                    "PV8",
-                    "PV9",
-                    "PV10",
-                    "PV11"
-                ],
-                "pv": [
-                    9322775.510204082,
-                    9132514.785506042,
-                    8946136.932740612,
-                    8763562.709623456,
-                    8584714.491059713,
-                    8409516.236140128,
-                    8237893.455810738,
-                    8069773.181202358,
-                    7905083.93260639,
-                    7743755.689083812,
-                    7585719.858694347
-                ]
+              interst: 0.020833333333333332,
+              sigmaPv: 9.270144678267168e7,
+              bulan: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+              pvNumber: [
+                "PV1",
+                "PV2",
+                "PV3",
+                "PV4",
+                "PV5",
+                "PV6",
+                "PV7",
+                "PV8",
+                "PV9",
+                "PV10",
+                "PV11",
+              ],
+              pv: [
+                9322775.510204082, 9132514.785506042, 8946136.932740612,
+                8763562.709623456, 8584714.491059713, 8409516.236140128,
+                8237893.455810738, 8069773.181202358, 7905083.93260639,
+                7743755.689083812, 7585719.858694347,
+              ],
             },
             {
-                "interst": 0.024999999999999998,
-                "sigmaPv": 9.054672432297602E7,
-                "bulan": [
-                    1,
-                    2,
-                    3,
-                    4,
-                    5,
-                    6,
-                    7,
-                    8,
-                    9,
-                    10,
-                    11
-                ],
-                "pvNumber": [
-                    "PV1",
-                    "PV2",
-                    "PV3",
-                    "PV4",
-                    "PV5",
-                    "PV6",
-                    "PV7",
-                    "PV8",
-                    "PV9",
-                    "PV10",
-                    "PV11"
-                ],
-                "pv": [
-                    9284878.048780488,
-                    9058417.60856633,
-                    8837480.59372325,
-                    8621932.28655927,
-                    8411641.255179776,
-                    8206479.273346124,
-                    8006321.2422889015,
-                    7811045.114428198,
-                    7620531.818954339,
-                    7434665.189223747,
-                    7253331.891925607
-                ]
-            }
-        ],
-        "irrPercentage": 0,
-        "irr": 0
-    }
-} 
-    document.querySelector(".interts").innerHTML = data.interst.intertsNpv[0] + "%";
-    document.querySelector(".hasil-perhitungan").innerHTML =data.interst.workSheet[0].interst.toFixed(5) ;
-    document.querySelector(".pv").innerHTML = "RP. " + data.interst.workSheet[0].sigmaPv.toLocaleString("en-US",{ style: 'decimal' });
-    document.querySelectorAll(".sama").forEach((v,i)=>{
-      // console.log(i);
-      const angka = data.interst.workSheet[0].pv[i].toFixed(0) 
-      document.querySelector(`.pv-${i+1}`).innerHTML =  "RP. " + parseInt(angka).toLocaleString();
-    });
-  </script>
+              interst: 0.024999999999999998,
+              sigmaPv: 9.054672432297602e7,
+              bulan: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+              pvNumber: [
+                "PV1",
+                "PV2",
+                "PV3",
+                "PV4",
+                "PV5",
+                "PV6",
+                "PV7",
+                "PV8",
+                "PV9",
+                "PV10",
+                "PV11",
+              ],
+              pv: [
+                9284878.048780488, 9058417.60856633, 8837480.59372325,
+                8621932.28655927, 8411641.255179776, 8206479.273346124,
+                8006321.2422889015, 7811045.114428198, 7620531.818954339,
+                7434665.189223747, 7253331.891925607,
+              ],
+            },
+          ],
+          irrWorkSheet: {
+            interst: 2.0856999999351378,
+            sigmaPv: 9.26889958105013e7,
+            bulan: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+            pvNumber: [
+              "PV1",
+              "PV2",
+              "PV3",
+              "PV4",
+              "PV5",
+              "PV6",
+              "PV7",
+              "PV8",
+              "PV9",
+              "PV10",
+              "PV11",
+            ],
+            pv: [
+              9322559.379037462, 9132091.349761413, 8945514.748654528,
+              8762750.070441024, 8583719.434207331, 8408346.550214952,
+              8236556.687391373, 8068276.641485151, 7903434.703871627,
+              7741960.6309959665, 7583785.6144405,
+            ],
+          },
+        },
+      };
+      document.querySelector(".interts").innerHTML =
+        data.interst.irr   + "%";
+      document.querySelector(".hasil-perhitungan").innerHTML =
+      data.interst.irrWorkSheet.interst.toFixed(5);
+      document.querySelector(".pv").innerHTML =
+        "RP. " +
+        data.interst.irrWorkSheet.sigmaPv.toLocaleString("en-US", {
+          style: "decimal",
+        });
+      document.querySelectorAll(".sama").forEach((v, i) => {
+        // console.log(i);
+        const angka = data.interst.irrWorkSheet.pv[i].toFixed(0);
+        document.querySelector(`.pv-${i + 1}`).innerHTML =
+          "RP. " + parseInt(angka).toLocaleString();
+      });
+    </script>
   </body>
 </html>

@@ -11,14 +11,12 @@
 
       body {
         width: 100%;
-        /* height: 100vh; */
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
         letter-spacing: 1px;
         background-color: #0c1022;
-        /* gap: 2rem; */
         margin: 1rem;
       }
       .red {
@@ -78,10 +76,71 @@
         transition: all 0.5s;
         cursor: pointer;
       }
+      .sidepanel {
+        display: none;
+        left: 28%;
+        position: fixed;
+        z-index: 100;
+        height: 21rem;
+        top: 0;
+        background-color: #0c1022;
+        transition: 0.5s;
+        padding-top: 60px;
+        overflow: hidden;
+      }
+
+      .sidepanel a {
+        color: #00ccff;
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 17px;
+        display: block;
+        transition: 0.3s;
+      }
+
+      .sidepanel a:hover {
+        color: #ee00ff;
+      }
+
+      .sidepanel .close-btn {
+        position: absolute;
+        top: 0px;
+        right: 25px;
+        font-size: 36px;
+      }
+
+      .open-btn {
+        left: 27%;
+        top: 0;
+        font-size: 20px;
+        cursor: pointer;
+        background-color: #0c1022;
+        padding: 10px 15px;
+        border: none;
+        color: #00ccff;
+        position: fixed;
+      }
+
+      .open-btn:hover {
+        background-color: #444;
+      }
     </style>
   </head>
   <body>
     <h2 class="red">Lembar Perhitungan NPV</h2>
+    <div id="my-sidepanel" class="sidepanel">
+      <a href="javascript:void(0)" class="close-btn">×</a>
+      <a href="" class="npv">Home</a>
+      <a href="" class="hitung-1">Lembar Perhitungan 1</a>
+      <a href="" class="hitung-2">Lembar Perhitungan 2</a>
+      <a href="" class="hitung-3">Lembar Perhitungan 3</a>
+      <a href="" class="hitung-4">Lembar Perhitungan 4</a>
+      <a href="" class="hitung-5">Lembar Perhitungan 5</a>
+      <a href="" class="hitung-irr">LEMBAR IRR</a>
+    </div>
+    <div>
+      <button class="open-btn" onclick="openNav()">☰</button>
+    </div>
     <table class="container">
       <thead>
         <tr>
@@ -139,20 +198,40 @@
           <td class="interst a-5"></td>
           <td class="npv-5"></td>
         </tr>
+        <tr>
+          <th>IRR</th>
+          <td class="interst-terakhir"></td>
+          <td class="irr-nol">Rp.0</td>
+        </tr>
       </tbody>
     </table>
     <script>
+      function openNav() {
+        const sidepanel = document.getElementById("my-sidepanel");
+        sidepanel.style.width = "300px";
+        sidepanel.style.display = "block";
+      }
+
+      document.querySelector(".close-btn").addEventListener("click", () => {
+        document.getElementById("my-sidepanel").style.width = "0";
+      });
+
       const params = new URLSearchParams(location.search);
       const urlObjectString = params.get("url");
-      const data = JSON.parse(decodeURIComponent(urlObjectString));
-     
+      let data = JSON.parse(decodeURIComponent(urlObjectString));
+
+      const urlObjectObjeck = JSON.stringify(data);
+      encodedUrlObjectString = encodeURIComponent(urlObjectObjeck);
+  
       document.querySelector("#harga").innerHTML =
         "RP. " + data.leasing.hargaMobil.toLocaleString();
       document.querySelector("#dp").innerHTML =
         "RP. " + data.leasing.dp.toLocaleString();
       document.querySelector("#cilan").innerHTML =
         "RP. " + data.leasing.cicilan.toLocaleString();
-
+      document.querySelector(".interst-terakhir").innerHTML = 
+      data.interst.irr.toLocaleString() + "%";
+     
       document.querySelectorAll(".interst").forEach((e, i) => {
         document.querySelector(`.a-${i + 1}`).innerHTML =
           data.interst.intertsNpv[i] + "%";
@@ -160,6 +239,34 @@
         document.querySelector(`.npv-${i + 1}`).innerHTML =
           "RP. " + data.interst.npv[i].toLocaleString();
       });
+      document.querySelector(".npv").onclick = (e) => {
+        e.preventDefault();
+        location.href = `../?url=${encodedUrlObjectString}`;
+      };
+      document.querySelector(".hitung-1").onclick = (e) => {
+        e.preventDefault();
+        location.href = `../sheet1/?url=${encodedUrlObjectString}`;
+      };
+      document.querySelector(".hitung-2").onclick = (e) => {
+        e.preventDefault();
+        location.href = `../sheet2/?url=${encodedUrlObjectString}`;
+      };
+      document.querySelector(".hitung-3").onclick = (e) => {
+        e.preventDefault();
+        location.href = `../sheet3/?url=${encodedUrlObjectString}`;
+      };
+      document.querySelector(".hitung-4").onclick = (e) => {
+        e.preventDefault();
+        location.href = `../sheet4/?url=${encodedUrlObjectString}`;
+      };
+      document.querySelector(".hitung-5").onclick = (e) => {
+        e.preventDefault();
+        location.href = `../sheet5/?url=${encodedUrlObjectString}`;
+      };
+      document.querySelector(".hitung-irr").onclick = (e) => {
+        e.preventDefault();
+        location.href = `../IRR/?url=${encodedUrlObjectString}`;
+      };
     </script>
   </body>
 </html>

@@ -1,348 +1,413 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tugas Sim</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      width: 100%;
-      /* height: 100vh; */
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      letter-spacing: 1px;
-      background-color: #0c1022;
-      gap: 2rem;
-      margin: 1rem;
-    }
-
-    .irr-form-container {
-      position: relative;
-      width: 400px;
-      height: 53rem;
-      max-width: 400px;
-      max-height: 53rem;
-      background: #040717;
-      border-radius: 50px 5px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-    }
-
-    .irr-form-container::before {
-      position: absolute;
-      width: 170%;
-      height: 170%;
-      content: "";
-      background-image: conic-gradient(transparent,
-          transparent,
-          transparent,
-          #ee00ff);
-      animation: rotate_border 6s linear infinite;
-    }
-
-    .irr-form-container::after {
-      position: absolute;
-      width: 170%;
-      height: 170%;
-      content: "aa";
-      background-image: conic-gradient(transparent,
-          transparent,
-          transparent,
-          #00ccff);
-      animation: rotate_border 6s linear infinite;
-      animation-delay: -3s;
-    }
-
-    @keyframes rotate_border {
-      0% {
-        transform: rotate(0deg);
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tugas Sim</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
       }
 
-      100% {
-        transform: rotate(360deg);
+      body {
+        width: 100%;
+        background-image: url("mobil2.jpg");
+        background-repeat: repeat;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        letter-spacing: 1px;
+        background-color: #0c1022;
+        gap: 2rem;
+        margin: 1rem;
       }
-    }
 
-    .irr-form {
-      position: absolute;
-      content: "";
-      background-color: #0c1022;
-      border-radius: 50px 5px;
-      inset: 5px;
-      padding: 50px 40px;
-      z-index: 10;
-      color: #00ccff;
-    }
+      .irr-form-container {
+        position: relative;
+        width: 400px;
+        height: 53rem;
+        max-width: 400px;
+    opacity: 0.94;
+        max-height: 53rem;
+        background: #040717;
+        border-radius: 50px 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
 
-    h2 {
-      font-size: 40px;
-      font-weight: 600;
-      text-align: center;
-    }
+      .irr-form-container::before {
+        position: absolute;
+        width: 170%;
+        height: 170%;
+        content: "";
+        background-image: conic-gradient(
+          transparent,
+          transparent,
+          transparent,
+          #ee00ff
+        );
+        animation: rotate_border 6s linear infinite;
+      }
 
-    .input-group {
-      margin-top: 40px;
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: start;
-    }
+      .irr-form-container::after {
+        position: absolute;
+        width: 170%;
+        height: 170%;
+        content: "aa";
+        background-image: conic-gradient(
+          transparent,
+          transparent,
+          transparent,
+          #00ccff
+        );
+        animation: rotate_border 6s linear infinite;
+        animation-delay: -3s;
+      }
 
-    .input-text {
-      width: 95%;
-      height: 30px;
-      background: transparent;
-      border: none;
-      outline: none;
-      border-bottom: 1px solid #00ccff;
-      font-size: 20px;
-      padding-left: 10px;
-      color: #00ccff;
-    }
+      @keyframes rotate_border {
+        0% {
+          transform: rotate(0deg);
+        }
 
-    ::placeholder {
-      font-size: 15px;
-      color: #00ccff52;
-      letter-spacing: 1px;
-    }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
 
-    .fa {
-      font-size: 20px;
-    }
+      .irr-form {
+        position: absolute;
+        content: "";
+        background-color: #0c1022;
+        border-radius: 50px 5px;
+        inset: 5px;
+        padding: 50px 40px;
+        z-index: 10;
+        color: #00ccff;
+      }
 
-    #irr-button {
-      display: flex;
-      width: 317px;
-      height: 40px;
-      transition: 1s;
-      margin-top: 56px;
-      justify-content: space-around;
-    }
+      h2 {
+        font-size: 40px;
+        font-weight: 600;
+        text-align: center;
+      }
 
-    #irr-button button {
-      width: 42%;
-      height: 100%;
-      text-decoration: none;
-      z-index: 10;
-      cursor: pointer;
-      font-size: 22px;
-      letter-spacing: 2px;
-      border: 1px solid #00ccff;
-      border-radius: 50px;
-      background-color: #0c1022;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: #00ccff;
-    }
+      .input-group {
+        margin-top: 40px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: start;
+      }
 
-    table {
-      display: block;
-    }
+      .input-text {
+        width: 95%;
+        height: 30px;
+        background: transparent;
+        border: none;
+        outline: none;
+        border-bottom: 1px solid #00ccff;
+        font-size: 20px;
+        padding-left: 10px;
+        color: #00ccff;
+      }
 
-    
-    
-    .header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
+      ::placeholder {
+        font-size: 15px;
+        color: #00ccff52;
+        letter-spacing: 1px;
+      }
 
-    .sidepanel {
-      display: none;
-      position: fixed;
-      z-index: 100;
-      height: 28rem;
-      top: 4rem;
-      /* left: 11rem; */
-      background-color: #0c1022;
-      transition: 0.5s;
-      padding-top: 60px;
-      overflow: hidden;
-    }
+      .fa {
+        font-size: 20px;
+      }
 
-    .sidepanel a {
-      color: #00ccff;
-      padding: 8px 8px 8px 32px;
-      text-decoration: none;
-      font-size: 25px;
-      display: block;
-      transition: 0.3s;
-    }
+      #irr-button {
+        display: flex;
+        width: 317px;
+        height: 40px;
+        transition: 1s;
+        margin-top: 56px;
+        justify-content: space-around;
+      }
 
-    .sidepanel a:hover {
-      color: #ee00ff;
-    }
+      #irr-button button {
+        width: 42%;
+        height: 100%;
+        text-decoration: none;
+        z-index: 10;
+        cursor: pointer;
+        font-size: 22px;
+        letter-spacing: 2px;
+        border: 1px solid #00ccff;
+        border-radius: 50px;
+        background-color: #0c1022;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #00ccff;
+      }
 
-    .sidepanel .close-btn {
-      position: absolute;
-      top: -18px;
-      right: 25px;
-      font-size: 36px;
-    }
+      table {
+        display: block;
+      }
 
-    .open-btn {
-      /* display: none; */
-      font-size: 20px;
-      cursor: pointer;
-      background-color: #0c1022;
-      padding: 10px 15px;
-      border: none;
-      color: #00ccff;
-    }
+      .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
 
-    .open-btn:hover {
-      background-color: #444;
-    }
-  </style>
-</head>
+      .sidepanel {
+        display: none;
+        position: fixed;
+        z-index: 100;
+        height: 28rem;
+        top: 4rem;
+        background-color: #0c1022;
+        transition: 0.5s;
+        padding-top: 60px;
+        overflow: hidden;
+      }
 
-<body>
-  <div class="irr-form-container">
-    <div class="irr-form">
-      <span class="header">
-        <div id="my-sidepanel" class="sidepanel">
-          <a href="javascript:void(0)" class="close-btn">×</a>
-          <a href="" class="npv">NPV</a>
-          <a href=""  class="hitung-1">Lembar Perhitungan 1</a>
-          <a href="" class="hitung-2">Lembar Perhitungan 2</a>
-          <a href="" class="hitung-3">Lembar Perhitungan 3</a>
-          <a href="" class="hitung-4">Lembar Perhitungan 4</a>
-          <a href="" class="hitung-5">Lembar Perhitungan 5</a>
-          <a href="" class="hitung-irr">LEMBAR IRR</a>
-        </div>
+      .sidepanel a {
+        color: #00ccff;
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 25px;
+        display: block;
+        transition: 0.3s;
+      }
 
-        <button class="open-btn" onclick="openNav()">☰</button>
-      </span>
-      <h2>3A leasing</h2>
+      .sidepanel a:hover {
+        color: #ee00ff;
+      }
 
-      <form action="" name="kirim">
-        <div class="input-group">
-          <i class="fa"></i>
-          <input type="number" placeholder="Harga Mobil" class="input-text" autocomplete="off" required name="harga" />
-        </div>
-        <div class="input-group">
-          <i class="fa"></i>
-          <input type="number" placeholder="DP" class="input-text" name="dp" required autocomplete="off" />
-        </div>
-        <div class="input-group">
-          <i class="fa"></i>
-          <input type="number" placeholder="Cicilan" class="input-text" name="cicilan" required autocomplete="off" />
-        </div>
-        <div class="input-group">
-          <i class="fa"></i>
-          <input type="number" placeholder="Invalasi Tahun ke-1" class="input-text" name="invalasi1" required
-            autocomplete="off" />
-        </div>
-        <div class="input-group">
-          <i class="fa"></i>
-          <input type="number" placeholder="Invalasi Tahun ke-2" class="input-text" name="invalasi2" required
-            autocomplete="off" />
-        </div>
-        <div class="input-group">
-          <i class="fa"></i>
-          <input type="number" placeholder="Invalasi Tahun ke-3" class="input-text" name="invalasi3" required
-            autocomplete="off" />
-        </div>
-        <div class="input-group">
-          <i class="fa"></i>
-          <input type="number" placeholder="Invalasi Tahun ke-4" class="input-text" name="invalasi4" required
-            autocomplete="off" />
-        </div>
-        <div class="input-group">
-          <i class="fa"></i>
-          <input type="number" placeholder="Invalasi Tahun ke-5" class="input-text" name="invalasi5" required
-            autocomplete="off" />
-        </div>
-        <div class="button-group" id="irr-button">
-          <button id="submit">Submit</button>
-        </div>
-      </form>
+      .sidepanel .close-btn {
+        position: absolute;
+        top: -18px;
+        right: 25px;
+        font-size: 36px;
+      }
+
+      .open-btn {
+        /* display: none; */
+        font-size: 20px;
+        cursor: pointer;
+        background-color: #0c1022;
+        padding: 10px 15px;
+        border: none;
+        color: #00ccff;
+      }
+
+      .open-btn:hover {
+        background-color: #444;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="irr-form-container">
+      <div class="irr-form">
+        <span class="header">
+          <div id="my-sidepanel" class="sidepanel">
+            <a href="javascript:void(0)" class="close-btn">×</a>
+            <a href="" class="npv">NPV</a>
+            <a href="" class="hitung-1">Lembar Perhitungan 1</a>
+            <a href="" class="hitung-2">Lembar Perhitungan 2</a>
+            <a href="" class="hitung-3">Lembar Perhitungan 3</a>
+            <a href="" class="hitung-4">Lembar Perhitungan 4</a>
+            <a href="" class="hitung-5">Lembar Perhitungan 5</a>
+            <a href="" class="hitung-irr">LEMBAR IRR</a>
+          </div>
+
+          <button class="open-btn" onclick="openNav()">☰</button>
+        </span>
+        <h2>3A leasing</h2>
+
+        <form action="" name="kirim">
+          <div class="input-group">
+            <i class="fa"></i>
+            <input
+              type="number"
+              placeholder="Harga Mobil"
+              class="input-text"
+              autocomplete="off"
+              required
+              name="harga"
+            />
+          </div>
+          <div class="input-group">
+            <i class="fa"></i>
+            <input
+              type="number"
+              placeholder="DP"
+              class="input-text"
+              name="dp"
+              required
+              autocomplete="off"
+            />
+          </div>
+          <div class="input-group">
+            <i class="fa"></i>
+            <input
+              type="number"
+              placeholder="Cicilan"
+              class="input-text"
+              name="cicilan"
+              required
+              autocomplete="off"
+            />
+          </div>
+          <div class="input-group">
+            <i class="fa"></i>
+            <input
+              type="number"
+              placeholder="Invalasi Tahun ke-1"
+              class="input-text"
+              name="invalasi1"
+              required
+              autocomplete="off"
+            />
+          </div>
+          <div class="input-group">
+            <i class="fa"></i>
+            <input
+              type="number"
+              placeholder="Invalasi Tahun ke-2"
+              class="input-text"
+              name="invalasi2"
+              required
+              autocomplete="off"
+            />
+          </div>
+          <div class="input-group">
+            <i class="fa"></i>
+            <input
+              type="number"
+              placeholder="Invalasi Tahun ke-3"
+              class="input-text"
+              name="invalasi3"
+              required
+              autocomplete="off"
+            />
+          </div>
+          <div class="input-group">
+            <i class="fa"></i>
+            <input
+              type="number"
+              placeholder="Invalasi Tahun ke-4"
+              class="input-text"
+              name="invalasi4"
+              required
+              autocomplete="off"
+            />
+          </div>
+          <div class="input-group">
+            <i class="fa"></i>
+            <input
+              type="number"
+              placeholder="Invalasi Tahun ke-5"
+              class="input-text"
+              name="invalasi5"
+              required
+              autocomplete="off"
+            />
+          </div>
+          <div class="button-group" id="irr-button">
+            <button id="submit">Submit</button>
+          </div>
+        </form>
+      </div>
     </div>
-  </div>
-  <script>
-    let encodedUrlObjectString="";
-    document.kirim.onsubmit =async (e) => {
-      e.preventDefault();
-      document.getElementById("submit").disabled = true;
-       const res = await fetch("http://localhost:8080/leasing", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          hargaMobil: parseInt(document.kirim.harga.value),
-          dp: parseInt(document.kirim.dp.value),
-          cicilan: parseInt(document.kirim.cicilan.value),
-          interstFirst: parseInt(document.kirim.invalasi1.value),
-          interstSecond: parseInt(document.kirim.invalasi2.value),
-          interstThird: parseInt(document.kirim.invalasi3.value),
-          interstFourth: parseInt(document.kirim.invalasi4.value),
-          interstFifth: parseInt(document.kirim.invalasi5.value)
-        }),
+    <script>
+      const cars = ["mobil.jpg", "mobil2.jpg", "mobul3.jpg"];
+      console.log(cars.length);
+      let i = 0;
+      setInterval(() => {
+        if (i > 2) {
+          i = 0;
+        } else {
+          document.body.style.backgroundImage = `url(${cars[i]})`;
+          i++;
+        }
+      }, 5000);
+
+      let encodedUrlObjectString = "";
+      document.kirim.onsubmit = async (e) => {
+        e.preventDefault();
+        document.getElementById("submit").disabled = true;
+        const res = await fetch("http://localhost:8080/leasing", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            hargaMobil: parseInt(document.kirim.harga.value),
+            dp: parseInt(document.kirim.dp.value),
+            cicilan: parseInt(document.kirim.cicilan.value),
+            interstFirst: parseInt(document.kirim.invalasi1.value),
+            interstSecond: parseInt(document.kirim.invalasi2.value),
+            interstThird: parseInt(document.kirim.invalasi3.value),
+            interstFourth: parseInt(document.kirim.invalasi4.value),
+            interstFifth: parseInt(document.kirim.invalasi5.value),
+          }),
+        });
+        const data = await res.json();
+
+        document.getElementById("submit").disabled = false;
+        console.log(data);
+        alert("Silahkan Check");
+        const urlObjectString = JSON.stringify(data);
+
+        encodedUrlObjectString = encodeURIComponent(urlObjectString);
+        document.getElementById("submit").disabled = false;
+
+        location.href = `/npv/?url=${encodedUrlObjectString}`;
+      };
+      document.querySelector(".hitung-1").onclick = (e) => {
+        e.preventDefault();
+        location.href = `/sheet1/?url=${encodedUrlObjectString}`;
+      };
+      document.querySelector(".hitung-2").onclick = (e) => {
+        e.preventDefault();
+        location.href = `/sheet2/?url=${encodedUrlObjectString}`;
+      };
+      document.querySelector(".hitung-3").onclick = (e) => {
+        e.preventDefault();
+        location.href = `/sheet3/?url=${encodedUrlObjectString}`;
+      };
+      document.querySelector(".hitung-4").onclick = (e) => {
+        e.preventDefault();
+        location.href = `/sheet4/?url=${encodedUrlObjectString}`;
+      };
+      document.querySelector(".hitung-5").onclick = (e) => {
+        e.preventDefault();
+        location.href = `/sheet5/?url=${encodedUrlObjectString}`;
+      };
+      document.querySelector(".hitung-irr").onclick = (e) => {
+        e.preventDefault();
+        location.href = `/IRR/?url=${encodedUrlObjectString}`;
+      };
+      document.querySelector(".npv").onclick = (e) => {
+        e.preventDefault();
+        location.href = `/npv/`;
+      };
+
+      function openNav() {
+        const sidepanel = document.getElementById("my-sidepanel");
+        sidepanel.style.width = "300px";
+        sidepanel.style.display = "block";
+      }
+
+      document.querySelector(".close-btn").addEventListener("click", () => {
+        document.getElementById("my-sidepanel").style.width = "0";
       });
-      const data = await res.json();
-
-      document.getElementById("submit").disabled = false;
-      console.log(data);
-      alert("Silahkan Check");
-      const urlObjectString =  JSON.stringify(data);
-      encodedUrlObjectString =  encodeURIComponent(urlObjectString);
-      document.getElementById("submit").disabled = false;
-      location.href = `/npv/?url=${encodedUrlObjectString}`;
-      // location.href = `/npv/`;
-    };
-    document.querySelector(".hitung-1").onclick=(e)=>{
-      e.preventDefault();
-      location.href = `/sheet1/?url=${encodedUrlObjectString}`;
-    }
-    document.querySelector(".hitung-2").onclick=(e)=>{
-      e.preventDefault();
-      location.href = `/sheet2/?url=${encodedUrlObjectString}`;
-    }
-    document.querySelector(".hitung-3").onclick=(e)=>{
-      e.preventDefault();
-      location.href = `/sheet3/?url=${encodedUrlObjectString}`;
-    }
-     document.querySelector(".hitung-4").onclick=(e)=>{
-      e.preventDefault();
-      location.href = `/sheet4/?url=${encodedUrlObjectString}`;
-    }
-     document.querySelector(".hitung-5").onclick=(e)=>{
-      e.preventDefault();
-      location.href = `/sheet5/?url=${encodedUrlObjectString}`;
-    }
-     document.querySelector(".hitung-irr").onclick=(e)=>{
-      e.preventDefault();
-      location.href = `/IRR/?url=${encodedUrlObjectString}`;
-    }
-    document.querySelector(".npv").onclick=(e)=>{
-      e.preventDefault();
-      location.href = `/npv/`;
-    }
-    
-    function openNav() {
-      const sidepanel = document.getElementById("my-sidepanel");
-      sidepanel.style.width = "300px";
-      sidepanel.style.display = "block";
-    }
-
-    document.querySelector(".close-btn").addEventListener("click", () => {
-      document.getElementById("my-sidepanel").style.width = "0";
-    });
-  </script>
-</body>
-
+    </script>
+  </body>
 </html>
